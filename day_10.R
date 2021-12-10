@@ -1,13 +1,10 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-
 source('global_functions.R')
 
 is.test <- FALSE
 day <- 10
 
 data.in <- paste0('data/day_', day, ifelse(is.test,'_test',''), '.txt')
-
-
 lines <- readLines(data.in)
 
 
@@ -30,15 +27,12 @@ get_first_wrong <- function(line.i) {
 }
 
 wrong.score <- sapply(X = lines.splt, FUN = get_first_wrong)
-message(sum(wrong.score))
+message('Part 1: ', sum(wrong.score))
 
 corr.lines <- lines[wrong.score == 0]
 
 
 fix_one_line <- function(line.i) {
-  pat.corr <- '(\\(\\))|(<>)|(\\{\\})|(\\[\\])'
-  pat.ic <- c(')', '>', '}', ']')
-  
   score <- 0
   compl.str <- ''
   
@@ -52,7 +46,6 @@ fix_one_line <- function(line.i) {
     score <- score * 5 + res.score
       
     line.splt <- line.splt[-length(line.splt)]
-    
   }
   
   data.table(
@@ -63,4 +56,4 @@ fix_one_line <- function(line.i) {
 res.all <- lapply(X = corr.lines, FUN = fix_one_line)
 res.all <- rbindlist(res.all)
 setorder(res.all, score)
-message(res.all[(.N+1)/2, score])
+message('Part 2: ', res.all[(.N+1)/2, score])
