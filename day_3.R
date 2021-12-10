@@ -1,8 +1,8 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-source('D:/Relive drive/Relive/3. Analytics/7. Analysis/SQL queries/global_functions.R')
+source('global_functions.R')
 
-data.in <- fread('day_3.txt', colClasses='character')
+data.in <- fread('data/day_3.txt', colClasses='character')
 data.in[,index := 1:.N]
 colnames(data.in) <- 'full'
 tab <- data.in[, .(

@@ -1,11 +1,11 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-source('D:/Relive drive/Relive/3. Analytics/7. Analysis/SQL queries/global_functions.R')
+source('global_functions.R')
 
 is.test <- FALSE
 day <- 7
 
-data.in <- paste0('day_', day, ifelse(is.test,'_test',''), '.txt')
+data.in <- paste0('data/day_', day, ifelse(is.test,'_test',''), '.txt')
 
 
 lines <- readLines(data.in)

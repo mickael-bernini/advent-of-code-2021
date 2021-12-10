@@ -1,9 +1,9 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-source('D:/Relive drive/Relive/3. Analytics/7. Analysis/SQL queries/global_functions.R')
+source('global_functions.R')
 
 is.test <- FALSE
-data.in <- ifelse(is.test,'day_5_test.txt','day_5.txt')
+data.in <- ifelse(is.test,'data/day_5_test.txt','data/day_5.txt')
 max.s <- ifelse(is.test,10,1000)
 
 

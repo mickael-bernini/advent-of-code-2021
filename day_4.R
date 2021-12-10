@@ -1,9 +1,9 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-source('D:/Relive drive/Relive/3. Analytics/7. Analysis/SQL queries/global_functions.R')
+source('global_functions.R')
 
 is.test <- FALSE
-data.in <- ifelse(is.test,'day_4_test.txt','day_4.txt')
+data.in <- ifelse(is.test,'data/day_4_test.txt','data/day_4.txt')
 num.cards <- ifelse(is.test, 3, 100)
 
 list.cards <- list()
